@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dcraw-emu-wasm Example</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; }
+        #status { margin-top: 15px; font-weight: bold; color: #444; }
+        .actions { margin-top: 20px; }
+        button { padding: 8px 16px; font-size: 1em; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RAW Image Processor</h1>
+        <p>WebAssemblyを使ってブラウザ内でRAW画像を直接現像するデモです。</p>
+        
+        <input type="file" id="fileInput" accept=".cr2,.nef,.arw,.dng,.orf,.rw2" />
+        
+        <div class="actions">
+            <label>
+                <input type="checkbox" id="halfSizeCheck" checked> 
+                Fast preview (Half-size)
+            </label>
+            <br><br>
+            <button id="processBtn" disabled>Process to TIFF</button>
+        </div>
+
+        <div id="status">Waiting for file...</div>
+        
+        <div id="result" style="margin-top: 20px; display: none;">
+            <p>Processing complete! 🎉</p>
+            <a id="downloadLink" href="#" download="output.tiff">Download TIFF Image</a>
+        </div>
+    </div>
+
+<script src="../dist/dcraw_emu.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
